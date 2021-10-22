@@ -1,0 +1,27 @@
+kafka:
+  brokers:
+    - broker-external:9093
+  protobuf:
+    enabled: true
+    mappings:
+      - topicName: profile
+        valueProtoType: profile.Profile
+        keyProtoType: UUID
+      - topicName: app.heloc
+        valueProtoType: application.AppHeloc
+        keyProtoType: UUID
+    fileSystem:
+      paths:
+        - /proto
+      enabled: false
+    git:
+      enabled: true
+      repository:
+        url: https://github.com/FigureTechnologies/stream-data.git
+        branch: master
+        baseDirectory: src/main/proto
+      basicAuth:
+        enabled: true
+        username: token
+logger:
+  level: debug
