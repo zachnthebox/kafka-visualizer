@@ -33,6 +33,8 @@ docker compose up kubefwd -d
 docker compose up kowl
 ```
 
+Kowl will be accessible here - http://localhost:8080
+
 ## Known Issues
 
 `kubefwd` timesout sometimes. The solution is to "down" everything and repeat the startup process.
