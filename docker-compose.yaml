@@ -2,7 +2,7 @@ version: '3.5'
 
 services:
   kowl:
-    build: https://github.com/zachnthebox/kowl.git#zach-test-build
+    image: quay.io/cloudhut/kowl:master
     environment:
       GITHUB_TOKEN: $GITHUB_TOKEN
     volumes:
