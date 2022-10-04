@@ -8,15 +8,6 @@ services:
     volumes:
       - ./config.yaml:/tmp/config.yaml
       - ./proto:/proto
-    depends_on:
-      - kubefwd
-    network_mode: service:kubefwd
     entrypoint: ./kowl --config.filepath /tmp/config.yaml -kafka.protobuf.git.basic-auth.password $GITHUB_TOKEN
-  kubefwd:
-    image: txn2/kubefwd
-    privileged: true
-    command: "svc -n kafka"
     ports: 
-      - 8080:8080 #exposing kowl from here
-    volumes:
-      - $HOME/.kube/:/root/.kube/
+      - 8081:8080

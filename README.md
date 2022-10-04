@@ -32,14 +32,13 @@ The registry would take care of all of that.
 ## Usage
 
 ```sh
-docker compose up kubefwd -d
-# Wait a few seconds for it to initialize
-docker compose up kowl
+docker compose up
 ```
 
-Kowl will be accessible here - http://localhost:8080
+Kowl will be accessible here - http://localhost:8081
 
-## Known Issues
+## Notes
 
-`kubefwd` times out sometimes.
-The solution is to "down" everything and repeat the startup process.
+Although hooking stream data with GIT up works, it was not the best integration.
+There inveitably needs to be external protos required outside of the GIT repo, but there is no way to use more than one GIT repo or use GIT and file based protos.
+If I want to look at properties for a proto, I copy the necessary protos in a proto folder.

@@ -1,27 +1,33 @@
 kafka:
   brokers:
-    - broker-external:9093
+    - pkc-r21pp.us-east1.gcp.confluent.cloud:9092
+  tls:
+    enabled: true
+  sasl:
+    enabled: true
+    username: PRIVATE
+    password: PRIVATE
   protobuf:
     enabled: true
     mappings:
-      - topicName: profile
-        valueProtoType: profile.Profile
+      - topicName: app.data.proto.external.lending.cloc.update.r1
+        valueProtoType: cloc.app.AppCloc
         keyProtoType: UUID
-      - topicName: app.heloc
-        valueProtoType: application.AppHeloc
+      - topicName: app.data.proto.internal.chown.aggregation.apps.r1
+        valueProtoType: ownership.Ownership
         keyProtoType: UUID
     fileSystem:
       paths:
         - /proto
       enabled: false
     git:
-      enabled: true
+      enabled: false
       repository:
         url: https://github.com/FigureTechnologies/stream-data.git
         branch: master
         baseDirectory: src/main/proto
       basicAuth:
-        enabled: true
+        enabled: false
         username: token
 logger:
   level: debug
