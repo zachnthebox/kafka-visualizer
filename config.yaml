@@ -19,7 +19,7 @@ kafka:
     fileSystem:
       paths:
         - /proto
-      enabled: false
+      enabled: true
     git:
       enabled: false
       repository:
