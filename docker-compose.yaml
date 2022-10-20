@@ -8,6 +8,6 @@ services:
     volumes:
       - ./config.yaml:/tmp/config.yaml
       - ./proto:/proto
-    entrypoint: ./kowl --config.filepath /tmp/config.yaml -kafka.protobuf.git.basic-auth.password $GITHUB_TOKEN
+    entrypoint: ./kowl --config.filepath /tmp/config.yaml
     ports: 
       - 8081:8080
